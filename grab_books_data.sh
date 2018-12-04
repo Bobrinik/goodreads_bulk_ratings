@@ -31,9 +31,7 @@ for i in "${arr[@]}"
 do
   echo "${i}"
   echo 
-   curl -G --request GET \
-  --url "https://www.goodreads.com/search/index.xml" --data-urlencode "q=${i}" --data-urlencode "key=PUT_GOOD_READS_API_KEY_HERE"\
-  --cookie 'csid=BAhJIhgxODktMTg2NDgyMS05OTQzODMxBjoGRVQ%253D--c9a27cad4d139defcd28f7776420983e6a8a1511; locale=en; _session_id2=331d930f8718e7834e0687b3bae725f8' > data.xml
+   curl -G --request GET --url "https://www.goodreads.com/search/index.xml" --data-urlencode "q=${i}" --data-urlencode "key=PUT_GOOD_READS_API_KEY_HERE" > data.xml
   < data.xml xml2json > data.json
   < data.json jq '.GoodreadsResponse.search.results.work[0] | {title: .best_book.title."$t", author: .best_book.author.name."$t", rating: .average_rating."$t"}' >> out.json
 done
