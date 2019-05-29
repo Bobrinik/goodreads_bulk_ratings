@@ -11,7 +11,7 @@
 - [Data Science at the Command Line](https://www.datascienceatthecommandline.com/)  provided a general idea about the tools and how they can be glued together. StackOverflow and trial and error approach was later used to come up with a final solution.
 
 ## Technology used
-
+- bash
 - curl
 - xml2json - to convert Goodreads API response into JSON
 - jq - to be able to query the resulting JSON
